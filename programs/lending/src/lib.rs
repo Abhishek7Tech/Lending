@@ -1,16 +1,23 @@
 use anchor_lang::prelude::*;
+mod instructions;
+use instructions::*;
 pub mod state;
 declare_id!("ESCy6rH5wjrGMdc8sMrc6reERuQXoRytqxpiDUvvZCjH");
 
 #[program]
 pub mod lending {
+
     use super::*;
 
-    pub fn initialize(ctx: Context<Initialize>) -> Result<()> {
-        msg!("Greetings from: {:?}", ctx.program_id);
-        Ok(())
+    pub fn initialize_bank(
+        ctx: Context<InitBank>,
+        max_ltv: u64,
+        liquidation_threshold: u64,
+    ) -> Result<()> {
+        process_init_bank(ctx, max_ltv, liquidation_threshold)
+    }
+
+    pub fn initialize_user(ctx: Context<InitUser>, usdc_address: Pubkey) -> Result<()> {
+        process_init_user(ctx, usdc_address)
     }
 }
-
-#[derive(Accounts)]
-pub struct Initialize {}
