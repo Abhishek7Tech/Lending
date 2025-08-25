@@ -20,4 +20,8 @@ pub mod lending {
     pub fn initialize_user(ctx: Context<InitUser>, usdc_address: Pubkey) -> Result<()> {
         process_init_user(ctx, usdc_address)
     }
+
+    pub fn deposte(ctx: Context<Deposite>, amount: u64) -> Result<()> {
+        process_depoiste(ctx, amount)
+    }
 }
