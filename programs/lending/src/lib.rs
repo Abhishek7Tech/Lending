@@ -1,6 +1,8 @@
 use anchor_lang::prelude::*;
 mod instructions;
 use instructions::*;
+mod error;
+
 pub mod state;
 declare_id!("ESCy6rH5wjrGMdc8sMrc6reERuQXoRytqxpiDUvvZCjH");
 
@@ -21,7 +23,11 @@ pub mod lending {
         process_init_user(ctx, usdc_address)
     }
 
-    pub fn deposte(ctx: Context<Deposite>, amount: u64) -> Result<()> {
+    pub fn deposite(ctx: Context<Deposite>, amount: u64) -> Result<()> {
         process_depoiste(ctx, amount)
+    }
+
+    pub fn withdraw(ctx: Context<Withdraw>, amount: u64) -> Result<()> {
+        process_withdraw(ctx, amount)
     }
 }
