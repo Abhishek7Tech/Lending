@@ -53,6 +53,7 @@ pub fn process_init_bank(ctx: Context<InitBank>, max_ltv: u64, liquidation_thres
     bank.max_ltv = max_ltv;
     bank.liquidation_threshold = liquidation_threshold;
     bank.authority = ctx.accounts.signer.key();
+    bank.interest_rate = 0.05 as u64;
     Ok(())
 }
 
