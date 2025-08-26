@@ -2,6 +2,7 @@ use anchor_lang::prelude::*;
 mod instructions;
 use instructions::*;
 mod error;
+mod constants;
 
 pub mod state;
 declare_id!("ESCy6rH5wjrGMdc8sMrc6reERuQXoRytqxpiDUvvZCjH");
@@ -30,4 +31,9 @@ pub mod lending {
     pub fn withdraw(ctx: Context<Withdraw>, amount: u64) -> Result<()> {
         process_withdraw(ctx, amount)
     }
+
+    pub fn borrow(ctx: Context<Borrow>, amount: u64) -> Result<()> {
+        process_borrow(ctx, amount)
+    }
+    
 }

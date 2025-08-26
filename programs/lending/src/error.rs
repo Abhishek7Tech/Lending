@@ -5,4 +5,7 @@ pub enum ErrorCode {
 #[msg("Low balance")]
 InsufficientFunds,
 
+#[msg("Attempting to borrow more than allowed")]
+OverBorrowableAmount
+
 }
