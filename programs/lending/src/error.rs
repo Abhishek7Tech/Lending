@@ -9,6 +9,8 @@ InsufficientFunds,
 OverBorrowableAmount,
 
 #[msg("Attempting to repay more than borrowed")]
-OverRepayAmount
+OverRepayAmount,
+#[msg("Attempting to liquidate healthy account")]
+OverLiquidation
 
 }
