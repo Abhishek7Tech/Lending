@@ -6,6 +6,9 @@ pub enum ErrorCode {
 InsufficientFunds,
 
 #[msg("Attempting to borrow more than allowed")]
-OverBorrowableAmount
+OverBorrowableAmount,
+
+#[msg("Attempting to repay more than borrowed")]
+OverRepayAmount
 
 }
